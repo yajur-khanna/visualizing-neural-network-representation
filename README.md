@@ -38,9 +38,48 @@ Key idea:
 
 ---
 
-## Feature space classification
+## XOR Geometry and Feature Space Warp
 
-https://github.com/user-attachments/assets/87309d0f-b54f-49dd-aaab-d983222ead4a
+The visualization shows how a neural network learns to solve the XOR classification problem by transforming the representation of the input data.
+
+### XOR in 2D (Input Space)
+
+The plot on the left shows the classic **XOR dataset in two dimensions**.
+
+In this dataset, **diagonally opposite quadrants belong to the same class**. Points in the top-left and bottom-right belong to one class, while points in the top-right and bottom-left belong to the other.
+
+Because of this arrangement, the dataset is **not linearly separable**.  
+No straight line can correctly divide the red and blue points.
+
+You can try this yourself: draw any line on the plot, and at least one point from each class will always end up on the wrong side.
+
+This is why XOR is one of the classic examples used to demonstrate the limitations of **linear classifiers**.
+
+---
+
+### Feature Space Warp (Learned Representation)
+
+The right plot shows the **learned feature representation inside the neural network**.
+
+The network first applies **linear transformations** that map the 2D input into a higher-dimensional feature space (3D in this example).  
+After each linear transformation, a **non-linear activation function (tanh)** reshapes the geometry of the space.
+
+The grid shown in the visualization represents how the input space is being **warped** during training. Regions of the space stretch, compress, and bend as the network learns a better representation.
+
+Over time, the points move into positions where the two classes become **linearly separable in the transformed space**.
+
+At that point, the final layer of the network only needs to fit a **simple hyperplane** to separate the classes.
+
+Although the boundary is linear in this learned 3D feature space, it corresponds to a **nonlinear decision boundary in the original 2D input space**.
+
+---
+
+### Visualization
+
+
+https://github.com/user-attachments/assets/3acb5f71-1e1d-4016-8ad5-a32524939a33
+
+---
 
 
 ## Files generated
